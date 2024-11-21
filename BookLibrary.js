@@ -11,9 +11,9 @@ const myLibrary =[];
 
 function Book(title, author, pages, read){
     this.title = title;
-    this.author = author;
+    this.author = author  != "" ? author : 'Anonymous';
     this.pages = pages;
-    this.read = read ? 'is already read.' : 'is not yet read.';
+    this.read = read ? 'Already read.' : 'Not yet read.';
 }
 
 function render(){
@@ -25,11 +25,17 @@ function render(){
         bookEl.innerHTML = `
         <h1>${book.title}</h1> 
         <p>by ${book.author}</p>
-        <p>has ${book.pages} pages</p>
+        <p>has ${book.pages} page/s</p>
         <p>${book.read}</p>
+        <button onclick="removeBook(${i})"><i class="ri-delete-bin-line">Now</i></button>
         `
         libraryBook.appendChild(bookEl);
     }
+}
+
+function removeBook(index){
+    myLibrary.splice(index,1);
+    render();
 }
 
 function addBookToLibrary(){
@@ -46,7 +52,3 @@ newBookForm.addEventListener("submit", (e)=>{
     e.preventDefault();
     addBookToLibrary();
 })
-
-const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, false);
-
-console.log(theHobbit.info()); // "The Hobbit by J.R.R. Tolkien, 295 pages, not read yet"
