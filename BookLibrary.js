@@ -1,3 +1,12 @@
+let newBookBtn = document.querySelector('#new-book-btn');
+newBookBtn.addEventListener('click', ()=>{
+  let nweBookForm = document.querySelector('new-book-form')
+})
+
+
+const myLibrary =[];
+
+
 function Book(title, author, pages, read){
     this.title = title;
     this.author = author;
@@ -8,14 +17,11 @@ function Book(title, author, pages, read){
     }
 }
 
-Book.prototype.sayWow = () => {
-    return `Wow Hello!!!`;
+function addBookToLibrary(){
+
 }
 
-Object.getPrototypeOf(Book.prototype) === Object.prototype;
 
 const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, false);
 
 console.log(theHobbit.info()); // "The Hobbit by J.R.R. Tolkien, 295 pages, not read yet"
-
-console.log(theHobbit.valueOf()); 
