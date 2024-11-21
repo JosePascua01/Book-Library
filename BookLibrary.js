@@ -1,7 +1,9 @@
 let newBookBtn = document.querySelector('#new-book-btn');
+let newBookForm = document.querySelector('#new-book-form');
+
 newBookBtn.addEventListener('click', ()=>{
-  let nweBookForm = document.querySelector('new-book-form')
-})
+  newBookForm.style.display = "block";
+});
 
 
 const myLibrary =[];
@@ -18,9 +20,18 @@ function Book(title, author, pages, read){
 }
 
 function addBookToLibrary(){
-
+    let title = document.querySelector('#title').value;
+    let author = document.querySelector('#author').value;
+    let pages = document.querySelector('#pages').value;
+    let read = document.querySelector('#read').value;
+    let newBook = new Book(title, author, pages, read);
+    console.log(newBook);
 }
 
+newBookForm.addEventListener("submit", ()=>{
+    event.preventDefault();
+    addBookToLibrary();
+})
 
 const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, false);
 
