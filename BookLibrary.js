@@ -3,6 +3,10 @@ let newBookForm = document.querySelector('#new-book-form');
 
 newBookBtn.addEventListener('click', ()=>{
   newBookForm.style.display = "block";
+  document.querySelector('#title').value = "";
+  document.querySelector('#author').value = "";
+  document.querySelector('#pages').value =  "";
+  document.querySelector('#read').checked = false; 
 });
 
 
@@ -13,7 +17,16 @@ function Book(title, author, pages, read){
     this.title = title;
     this.author = author  != "" ? author : 'Anonymous';
     this.pages = pages;
-    this.read = read ? 'Already read.' : 'Not yet read.';
+    this.read = read;
+}
+
+Book.prototype.toggleRead = function(){
+    this.read = !this.read;
+}
+
+function toggleRead(index){
+    myLibrary[index].toggleRead();
+    render();
 }
 
 function render(){
@@ -23,11 +36,14 @@ function render(){
         let book = myLibrary[i];
         let bookEl = document.createElement('div');
         bookEl.innerHTML = `
+        <div class="card">
         <h1>${book.title}</h1> 
         <p>by ${book.author}</p>
         <p>has ${book.pages} page/s</p>
-        <p>${book.read}</p>
-        <button onclick="removeBook(${i})"><i class="ri-delete-bin-line">Now</i></button>
+        <p>${book.read ? 'Already read.' : 'Not yet read.'}</p>
+        <button class="deleted" onclick="removeBook(${i})"><i class="ri-delete-bin-line"></i></button>
+        <button onclick="toggleRead(${i})">Toggle Read</button>
+        </div>
         `
         libraryBook.appendChild(bookEl);
     }
@@ -51,4 +67,5 @@ function addBookToLibrary(){
 newBookForm.addEventListener("submit", (e)=>{
     e.preventDefault();
     addBookToLibrary();
+    newBookForm.style.display = "none";
 })

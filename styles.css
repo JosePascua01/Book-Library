@@ -1,0 +1,144 @@
+:root {
+    --background: #abd1c6;
+    --main-box: #f9bc60;
+    --box-stroke: #001e1d;
+    --info-box: #004643;
+    --check: #e16162;
+}
+
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.4px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10vh;
+    padding: 0;
+    background-color: var(--background);
+}
+
+header {
+    font-size: 24rem;
+    font-weight: 600;
+}
+
+form {
+    margin-top: 25px;
+    padding: 25px;
+    width: 100%;
+    max-width: 700px;
+    background-color: var(--main-box);
+    border: 3px solid var(--box-stroke);
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Optional: Adds space between grid items */
+}
+
+label {
+    font-size: 14rem;
+}
+
+table{
+    width: 100%;
+    margin: auto;
+}
+
+table#last-row{
+    margin-top: 10px;
+    height: 25px;
+}
+
+td[class="read"]{
+    margin-top: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+    padding: 5px;
+    background-color: var(--main-box);
+    border: 0;
+    border-bottom: 3px solid var(--box-stroke);
+    text-align: center;
+    justify-content: center;
+    font-size: 3vh;
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+}
+
+button, #submit-button {
+    margin: 0;
+    padding: 10px;
+    background-color: var(--check);
+    text-align: center;
+    justify-content: center;
+    font-size: 2vh;
+    border-radius: 15px;
+    border: 3px solid var(--check);
+}
+
+button:hover, #submit-button:hover {
+    cursor: pointer;
+    border: 3px solid var(--box-stroke);
+}
+
+#library{
+    margin-top: 10vh;
+    display: flex;
+    gap: 10px;
+    width:100%
+}
+
+div.card{
+    background-color: var(--background);
+    width: 250px;
+    height: 275px;
+    font-size: 14rem;
+    border: 3px solid var(--box-stroke);
+    border-radius: 25px;
+    box-shadow: 3px 3px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+div.card h1{
+    font-size: 20rem;
+    text-align: center;
+    background-color: var(--info-box);
+    margin: 0;
+    padding: 10px;
+    border-radius: 22px 22px 0 0;
+    overflow: hidden;
+}
+
+div.card p{
+    font-size: 10rem;
+    text-align: center;
+    margin: 0;
+}
+
+div.card button:not(i){
+    font-size: 12rem;
+    align-self: center;
+    width: 50%;
+}
+
+div.card button.deleted {
+    font-size: 12rem;
+    align-self: center;
+    width: auto;
+}
+
+div.card button.deleted i{
+    font-size: 12rem;
+    align-self: center;
+}
